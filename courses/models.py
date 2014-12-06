@@ -6,6 +6,7 @@ tech = (
     ('JavaScript', 'JavaScript'),
 )
 
+
 class Course(models.Model):
 
     technology = models.CharField(max_length=255, choices=tech)

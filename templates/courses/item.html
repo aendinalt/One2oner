@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block nav%}
+    {% include 'courses/nav.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Course: {{ course.name }}</h1>
+<ul class="list-group">
+    <li class="list-group-item">Технология: {{ course.technology }}</li>
+    <li class="list-group-item">Описание: {{ course.description }}</li>
+    <li class="list-group-item">Преподаватель: {{ course.instructor }}</li>
+    <li class="list-group-item">Ассистент: {{ course.assistant }}</li>
+    <li class="list-group-item">Дата начала: {{ course.start_date }}</li>
+    <li class="list-group-item">Дата окончания: {{ course.end_date }}</li>
+</ul>
+{% endblock %}

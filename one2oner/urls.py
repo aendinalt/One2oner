@@ -4,6 +4,7 @@ from django.contrib import admin
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'one2oner.views.dashboard'),
+    url(r'^surveys/', include('surveyer.urls')),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

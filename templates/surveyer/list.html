@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block nav%}
+    {% include 'surveyer/nav.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>One2one surveys list</h1>
+    <ul class="list-group">
+
+      {% for student in students %}
+      <li class="list-group-item">
+        <a href="/students/{{ student.id }}/">
+          {{ student.surname }} {{ student.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+{% endblock %}

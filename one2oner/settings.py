@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # custom apps
     'surveyer',
+    'record',
 )
 
 MIDDLEWARE_CLASSES = (

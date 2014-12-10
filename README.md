@@ -15,6 +15,7 @@ Surveyer - Models:
 Record
 =====
 Application is purposed to perform some one-2-one session and record it's result
+
 Record - Models:
 * Record
  * interviewer = current user

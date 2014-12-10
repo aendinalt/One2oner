@@ -1,6 +1,6 @@
-<map version="freeplane 1.2.0">
+<map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="One2Oner" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1417809282107"><hook NAME="MapStyle" zoom="2.143">
+<node TEXT="One2Oner" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1417809282107"><hook NAME="MapStyle" zoom="1.464">
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -49,7 +49,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="3"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="4"/>
 <node TEXT="Pages" POSITION="right" ID="ID_934732698" CREATED="1417809287018" MODIFIED="1417812346478">
 <edge COLOR="#ff0000"/>
 <font BOLD="true"/>
@@ -106,23 +106,17 @@
 <node TEXT="User Profile" ID="ID_877067889" CREATED="1417809353899" MODIFIED="1417809376826"/>
 <node TEXT="Admin-side" ID="ID_13865223" CREATED="1417809364427" MODIFIED="1417809370083"/>
 </node>
+<node TEXT="Models" POSITION="right" ID="ID_1507084570" CREATED="1418205537884" MODIFIED="1418205540844">
+<edge COLOR="#ff00ff"/>
+<node TEXT="Interviever" ID="ID_1827725107" CREATED="1418205544441" MODIFIED="1418205570673"/>
+<node TEXT="Employee" ID="ID_1909770102" CREATED="1418205574433" MODIFIED="1418205583210"/>
+<node TEXT="Survey" ID="ID_632673435" CREATED="1418205585419" MODIFIED="1418205590914"/>
+<node TEXT="Record" ID="ID_1494654783" CREATED="1418205591377" MODIFIED="1418205593903"/>
+<node TEXT="Question" ID="ID_801144099" CREATED="1418205600978" MODIFIED="1418205617279"/>
+</node>
 <node TEXT="Roles" POSITION="left" ID="ID_991632592" CREATED="1417809413364" MODIFIED="1417809415963">
 <edge COLOR="#00ff00"/>
-<node ID="ID_660261589" CREATED="1417809418036" MODIFIED="1417809722593"><richcontent TYPE="NODE">
-
-<html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      <strike>Employee</strike>
-    </p>
-  </body>
-</html>
-
-</richcontent>
-</node>
+<node TEXT="Employee" ID="ID_660261589" CREATED="1417809418036" MODIFIED="1418225231766"/>
 <node TEXT="Interviewer" ID="ID_1205968222" CREATED="1417809424868" MODIFIED="1417809432555">
 <node TEXT="Add One2One records so that it will keep" ID="ID_458455254" CREATED="1417809732314" MODIFIED="1417810063485"/>
 <node TEXT="See my prev added One2One records" ID="ID_444453772" CREATED="1417810117728" MODIFIED="1417810151041"/>
@@ -147,7 +141,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>

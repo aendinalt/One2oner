@@ -27,3 +27,20 @@ Record - Models:
  * mark - char field + choices
  * explanation - text field, nullable and can be blank
 
+Dossier
+=====
+Application is made only with one purpose, to use OneToOneField relationship
+
+Dossier - Models:
+* Address
+ * zip - integer
+ * country - Char Field
+ * region - Char Field
+ * district - Char Field
+ * street - Char Field
+ * building - Char Field
+
+* Dossier
+ * address - O2O on Address
+
+

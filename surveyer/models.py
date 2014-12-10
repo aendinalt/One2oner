@@ -6,7 +6,7 @@ class Question(models.Model):
     question_text = models.TextField(max_length=1000)
 
     def __unicode__(self):
-        return Question.question_text[:50]
+        return self.question_text[:50]
 
 
 class Survey(models.Model):
@@ -14,4 +14,4 @@ class Survey(models.Model):
     questions = models.ManyToManyField(Question)
 
     def __unicode__(self):
-        return Survey.name[:50]
+        return self.name[:50]

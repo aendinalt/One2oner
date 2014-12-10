@@ -8,10 +8,10 @@
 <h1>One2one surveys list</h1>
     <ul class="list-group">
 
-      {% for student in students %}
+      {% for survey in surveys %}
       <li class="list-group-item">
-        <a href="/students/{{ student.id }}/">
-          {{ student.surname }} {{ student.name }}
+        <a href="/surveys/{{ survey.id }}/">
+          {{ survey.name }}
         </a>
       </li>
       {% endfor %}

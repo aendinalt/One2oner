@@ -7,7 +7,10 @@ class Record(models.Model):
     interviewer = models.ForeignKey(User, related_name='interviewer')
     employee = models.ForeignKey(User, related_name='employee')
     survey = models.ForeignKey('surveyer.Survey')
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
+
+    def __unicode__(self):
+        return str(self.employee) + ' | ' + str(self.date)
 
 
 class Answer(models.Model):
@@ -21,4 +24,4 @@ class Answer(models.Model):
     explanation = models.TextField(max_length=1000, null=True, blank=True)
 
     def __unicode__(self):
-        return Answer.mark + ' ' + Answer.question.__unicode__()
+        return self.mark + ' ' + self.question.__unicode__()

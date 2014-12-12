@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block nav%}
-    {% include 'surveyer/nav.html' %}
+    {% include 'records/nav.html' %}
 {% endblock %}
 
 {% block content %}
-<h1>Survey: {{ survey.name }}</h1>
-<ul class="list-group">
-    {% for question in questions %}
-        <li class="list-group-item">{{ question.question_text }}</li>
-    {% endfor %}
-</ul>
-{% endblock %}
+    <h1>Record: {{ record.interviewer }} | {{ record.employee }} | {{ record.date }}</h1>
+    <ul class="list-group">
+        {% for answer in answers %}
+            <li class="list-group-item">{{ answer.mark }} {{ answer.explanation }}</li>
+        {% endfor %}
+    </ul>
+    {% endblock %}

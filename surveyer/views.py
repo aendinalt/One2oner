@@ -10,7 +10,7 @@ def surveys_list(request):
 
 
 def survey_details(request, survey_id):
-    survey = Survey.objects.filter(id=survey_id)
+    survey = Survey.objects.get(id=survey_id)
     questions = Question.objects.filter(survey__id=survey_id)
     print questions
     return render(request, 'surveyer/item.html', {

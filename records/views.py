@@ -9,4 +9,9 @@ def records_list(request):
 
 
 def record_details(request, record_id):
-    pass
+    record = Record.objects.get(id=record_id)
+    answers = Answer.objects.filter(record__id=record_id)
+    return render(request, 'records/item.html', {
+        'record': record,
+        'answers': answers,
+        })

@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     # custom apps
     'surveyer',
     'records',
-    'dossier',
+    #'dossier',
 )
 
 MIDDLEWARE_CLASSES = (

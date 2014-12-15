@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-<h1>Dashboard</h1>
-<a href="{% static 'images/mindmap.jpg' %}"><img src="{% static 'images/mindmap.jpg' %}" width="50%" height="50%"></a>
-{% endblock %}
 
-{% block nav%}
-    <li><a href="/surveys/">Surveys</a></li>
-    <li><a href="/records/">Records</a></li>
-{% endblock%}
+{% block content %}
+    <h1>Dashboard</h1>
+    <a href="{% static 'images/mindmap.jpg' %}"><img src="{% static 'images/mindmap.jpg' %}" width="50%" height="50%"></a>
+{% endblock %}

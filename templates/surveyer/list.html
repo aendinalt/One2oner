@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block surveys-style %}
-class="active"
+    {% include 'surveyer/style.dhtml' %}
 {% endblock %}
+
+{% block title %}Surveys List{% endblock %}
 
 {% block content %}
 <h1>One2one surveys list</h1>
@@ -10,7 +12,7 @@ class="active"
 
       {% for survey in surveys %}
       <li class="list-group-item">
-        <a href="/surveys/{{ survey.id }}/">
+        <a href="{% url 'surveys' %}{{ survey.id }}/">
           {{ survey.name }}
         </a>
       </li>

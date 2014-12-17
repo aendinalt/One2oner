@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block records-style %}
-class="active"
+    {% include 'records/style.dhtml' %}
 {% endblock %}
+
+{% block title %}Records List{% endblock %}
 
 {% block content %}
 <h1>One2one records list</h1>
@@ -10,7 +12,7 @@ class="active"
 
       {% for record in records %}
       <li class="list-group-item">
-        <a href="/records/{{ record.id }}/">
+        <a href="{% url 'records' %}{{ record.id }}/">
           {{ record.interviewer }} | {{ record.employee }} ({{ record.date }})
         </a>
       </li>

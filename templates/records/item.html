@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block records-style %}
-class="active"
+    {% include 'records/style.dhtml' %}
 {% endblock %}
+
+{% block title %}Record from {{ record.date }}{% endblock %}
 
 {% block content %}
     <h1>Record: {{ record.interviewer }} | {{ record.employee }} | {{ record.date }}</h1>

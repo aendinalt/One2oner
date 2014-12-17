@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block surveys-style %}
-class="active"
+    {% include 'surveyer/style.dhtml' %}
 {% endblock %}
+
+{% block title %}Survey: {{ survey.name }}{% endblock %}
+
 
 {% block content %}
 <h1>Survey: {{ survey.name }}</h1>

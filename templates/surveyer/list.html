@@ -10,12 +10,13 @@
 <h1>One2one surveys list</h1>
     <ul class="list-group">
 
-      {% for survey in surveys %}
-      <li class="list-group-item">
-        <a href="{% url 'surveys' %}{{ survey.id }}/">
-          {{ survey.name }}
-        </a>
-      </li>
-      {% endfor %}
+        {% for survey in surveys %}
+        <li class="list-group-item" style="display: block;">
+            <a href="{% url 'surveys' %}{{ survey.id }}/">
+                {{ survey.name }}
+            </a>
+            <a class="pull-right" href="{% url 'survey-edit' survey_id=survey.id %}">Edit</a>
+        </li>
+        {% endfor %}
     </ul>
 {% endblock %}

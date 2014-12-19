@@ -17,3 +17,12 @@ def survey_details(request, survey_id):
         'survey': survey,
         'questions': questions
         })
+
+
+def survey_edit(request, survey_id):
+    survey = Survey.objects.get(id=survey_id)
+    questions = Question.objects.filter(survey__id=survey_id)
+    return render(request, 'surveyer/item.html', {
+        'survey': survey,
+        'questions': questions
+        })

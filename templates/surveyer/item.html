@@ -14,4 +14,5 @@
         <li class="list-group-item">{{ question.question_text }}</li>
     {% endfor %}
 </ul>
+<button class="btn btn-primary" href="{% url 'survey-edit' survey_id=survey.id %}">Edit</button>
 {% endblock %}

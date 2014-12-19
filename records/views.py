@@ -15,3 +15,12 @@ def record_details(request, record_id):
         'record': record,
         'answers': answers,
         })
+
+
+def record_edit(request, record_id):
+    record = Record.objects.get(id=record_id)
+    answers = Answer.objects.filter(record__id=record_id)
+    return render(request, 'records/item.html', {
+        'record': record,
+        'answers': answers,
+        })

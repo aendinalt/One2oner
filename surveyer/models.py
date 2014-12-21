@@ -14,7 +14,6 @@ class Question(models.Model):
 
 class Survey(models.Model):
     name = models.CharField(max_length=100)
-    slug = models.CharField(max_length=150)
     questions = models.ManyToManyField(Question)
 
     def __unicode__(self):

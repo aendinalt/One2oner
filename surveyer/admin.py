@@ -13,7 +13,6 @@ class QuestionInline(admin.TabularInline):
 @admin.register(Survey)
 class SurveyAdmin(admin.ModelAdmin):
     filter_horizontal = ['questions']
-    prepopulated_fields = {'slug': ('name',)}
 
     list_display = ['name', 'number_of_questions']
 

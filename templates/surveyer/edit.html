@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block surveys-style %}
+    {% include 'surveyer/style.dhtml' %}
+{% endblock %}
+
+{% block title %}Edit "{{ survey.name }}"{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form role="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type='submit' />
+</form>
+{% endblock %}

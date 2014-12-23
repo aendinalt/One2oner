@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
 
 {% block records-style %}
-    {% include 'records/style.dhtml' %}
+{% include 'records/style.dhtml' %}
 {% endblock %}
 
 {% block title %}Records List{% endblock %}
 
 {% block content %}
 <h1>One2one records list</h1>
-    <ul class="list-group">
+<ul class="list-group">
 
-      {% for record in records %}
-      <li class="list-group-item">
+    {% for record in records %}
+    <li class="list-group-item">
         <a href="{% url 'records' %}{{ record.id }}/">
-          {{ record.interviewer }} | {{ record.employee }} ({{ record.date }})
+            {{ record.interviewer }} | {{ record.employee }} ({{ record.date }})
         </a>
-      </li>
-      {% endfor %}
-    </ul>
+        <a class="pull-right" href="{% url 'record-edit' record_id=record.id %}">Edit</a>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}

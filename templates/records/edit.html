@@ -12,6 +12,12 @@
 <form role="form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
+</form>
+<form role="form" method="post">
+    {% csrf_token %}
+    {% for form in answers %}
+        {{ form.as_p }}
+    {% endfor %}
     <input class="btn btn-primary" type='submit' />
 </form>
 {% endblock %}

@@ -19,19 +19,9 @@ class SurveyDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SurveyDetail, self).get_context_data(**kwargs)
-        object = kwargs['object']
-        context['questions'] = Question.objects.filter(survey__id=object.id)
+        obj = kwargs['object']
+        context['questions'] = Question.objects.filter(survey__id=obj.id)
         return context
-
-
-def survey_details(request, survey_id):
-    survey = Survey.objects.get(id=survey_id)
-    questions = Question.objects.filter(survey__id=survey_id)
-    print questions
-    return render(request, 'surveyer/item.html', {
-        'survey': survey,
-        'questions': questions
-        })
 
 
 def survey_edit(request, survey_id):

@@ -4,15 +4,15 @@
     {% include 'surveyer/style.dhtml' %}
 {% endblock %}
 
-{% block title %}Survey: {{ survey.name }}{% endblock %}
+{% block title %}Survey: {{ object.name }}{% endblock %}
 
 
 {% block content %}
-<h1>Survey: {{ survey.name }}</h1>
+<h1>Survey: {{ object.name }}</h1>
 <ul class="list-group">
     {% for question in questions %}
         <li class="list-group-item">{{ question.question_text }}</li>
     {% endfor %}
 </ul>
-<a href="{% url 'survey-edit' survey_id=survey.id %}"><button class="btn btn-primary">Edit</button></a>
+<a href="{% url 'survey-edit' pk=object.id %}"><button class="btn btn-primary">Edit</button></a>
 {% endblock %}

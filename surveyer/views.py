@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from models import *
 from surveyer.forms import *
 
@@ -7,14 +8,20 @@ from surveyer.forms import *
 # Create your views here.
 
 
-def surveys_list(request):
-    surveys = Survey.objects.all()
-    return render(request, 'surveyer/list.html', {'surveys': surveys})
-
-
 class SurveysList(ListView):
     model = Survey
     template_name = 'surveyer/list.html'
+
+
+class SurveyDetail(DetailView):
+    model = Survey
+    template_name = 'surveyer/item.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SurveyDetail, self).get_context_data(**kwargs)
+        object = kwargs['object']
+        context['questions'] = Question.objects.filter(survey__id=object.id)
+        return context
 
 
 def survey_details(request, survey_id):

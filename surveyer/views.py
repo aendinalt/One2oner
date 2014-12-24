@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from models import *
 from surveyer.forms import *
 
@@ -37,33 +38,18 @@ class SurveyUpdate(UpdateView):
         return context
 
 
-def survey_edit(request, survey_id):
-    survey = Survey.objects.get(id=survey_id)
-    title = 'Edit "' + survey.name + '"'
-    if request.method == 'POST':
-        form = SurveyForm(request.POST, instance=survey)
-        if form.is_valid():
-            survey = form.save()
-            return redirect('survey-details', survey_id)
-    else:
-        form = SurveyForm(instance=survey)
-    return render(request, 'surveyer/edit.html', {
-        'survey': survey,
-        'form': form,
-        'title': title,
-        })
+class SurveyAdd(CreateView):
+    model = Survey
+    form_class = SurveyForm
+    template_name = 'surveyer/edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SurveyAdd, self).get_context_data(**kwargs)
+        context['title'] = "Add new Survey"
+        return context
 
 
-def survey_add(request):
-    title = "Add new Survey"
-    if request.method == 'POST':
-        form = SurveyForm(request.POST)
-        if form.is_valid():
-            survey = form.save()
-            return redirect('survey-details', survey.id)
-    else:
-        form = SurveyForm()
-    return render(request, 'surveyer/edit.html', {
-        'form': form,
-        'title': title,
-        })
+class SurveyDelete(DeleteView):
+    model = Survey
+    success_url = reverse_lazy('surveys')
+    template_name = 'confirm_delete.html'

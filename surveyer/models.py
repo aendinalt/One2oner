@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 # Create your models here.
@@ -18,3 +19,6 @@ class Survey(models.Model):
 
     def __unicode__(self):
         return self.name[:50]
+
+    def get_absolute_url(self):
+        return reverse('surveys')

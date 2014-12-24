@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.views.generic.list import ListView
 from models import *
 from surveyer.forms import *
+
 
 # Create your views here.
 
@@ -8,6 +10,11 @@ from surveyer.forms import *
 def surveys_list(request):
     surveys = Survey.objects.all()
     return render(request, 'surveyer/list.html', {'surveys': surveys})
+
+
+class SurveysList(ListView):
+    model = Survey
+    template_name = 'surveyer/list.html'
 
 
 def survey_details(request, survey_id):

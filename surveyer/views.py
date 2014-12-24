@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView
 from models import *
 from surveyer.forms import *
 
@@ -21,6 +22,18 @@ class SurveyDetail(DetailView):
         context = super(SurveyDetail, self).get_context_data(**kwargs)
         obj = kwargs['object']
         context['questions'] = Question.objects.filter(survey__id=obj.id)
+        return context
+
+
+class SurveyUpdate(UpdateView):
+    model = Survey
+    form_class = SurveyForm
+    template_name = 'surveyer/edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SurveyUpdate, self).get_context_data(**kwargs)
+        print kwargs
+        context['title'] = 'Edit "' + self.object.name + '"'
         return context
 
 

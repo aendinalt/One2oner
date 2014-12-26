@@ -18,29 +18,33 @@ def record_details(request, record_id):
         })
 
 
-def record_edit(request, record_id):
-    record = Record.objects.get(id=record_id)
-    title = 'Edit record "' + str(record.id) + '"'
+def record_edit(request, record_id=None):
+    if record_id:
+        record = Record.objects.get(id=record_id)
+        title = 'Edit record "' + str(record.id) + '"'
+    else:
+        title = 'Add new Record'
+
     if request.method == 'POST':
-        form = RecordForm(request.POST, instance=record)
-        answer_formset = AnswerFormSet(request.POST,
-                                       queryset=Answer.objects.
-                                       filter(record__id=record_id))
-        if form.is_valid() and answer_formset.is_valid():
+        if record_id:
+            form = RecordForm(request.POST, instance=record)
+        else:
+            form = RecordForm(request.POST)
+
+        if form.is_valid():
             record = form.save()
-            answer_formset.save()
             return redirect('record-details', record.id)
     else:
-        form = RecordForm(instance=record)
-        answer_formset = AnswerFormSet(
-            queryset=Answer.objects.filter(record__id=record_id),
-            initial=[{
-               'record': record,
-            }])
+        if record_id:
+            form = RecordForm(instance=record)
+        else:
+            form = RecordForm()
 
     return render(request, 'records/edit.html', {
-        'record': record,
-        'answer_formset': answer_formset,
         'form': form,
         'title': title
         })
+
+
+def record_delete(request):
+    pass

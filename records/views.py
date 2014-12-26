@@ -46,5 +46,9 @@ def record_edit(request, record_id=None):
         })
 
 
-def record_delete(request):
-    pass
+def record_delete(request, record_id):
+    record = Record.objects.get(id=record_id)
+    answers = Answer.objects.filter(record__id=record_id)
+    answers.delete()
+    record.delete()
+    return redirect('records')

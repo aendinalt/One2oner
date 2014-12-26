@@ -15,5 +15,5 @@
     {% endfor %}
 </ul>
 <a href="{% url 'survey-edit' pk=object.id %}"><button class="btn btn-primary">Edit</button></a>
-<a href="{% url 'survey-delete' pk=object.id %}"><button class="btn btn-primary">Delete</button></a>
+<a href="{% url 'survey-delete' pk=object.id %}"><button class="btn btn-danger">Delete</button></a>
 {% endblock %}

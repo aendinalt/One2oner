@@ -6,10 +6,11 @@ from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from models import *
 from surveyer.forms import *
 
+import logging
+logger = logging.getLogger('one2oner.'+__name__)
+
 
 # Create your views here.
-
-
 class SurveysList(ListView):
     model = Survey
     template_name = 'surveyer/list.html'
@@ -37,6 +38,11 @@ class SurveyUpdate(UpdateView):
         context['title'] = 'Edit "' + self.object.name + '"'
         return context
 
+    def form_valid(self, form):
+        form.save()
+        logger.debug('Survey #'+str(self.object.id)+' is updated')
+        return redirect(self.get_success_url())
+
 
 class SurveyAdd(CreateView):
     model = Survey
@@ -47,6 +53,11 @@ class SurveyAdd(CreateView):
         context = super(SurveyAdd, self).get_context_data(**kwargs)
         context['title'] = "Add new Survey"
         return context
+
+    def form_valid(self, form):
+        form.save()
+        logger.debug('Survey #'+str(self.object.id)+' is updated')
+        return redirect(self.get_success_url())
 
 
 class SurveyDelete(DeleteView):
